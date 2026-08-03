@@ -1,0 +1,32 @@
+RAG SYSTEM EVALUATION REPORT
+==================================================
+Evaluation Date: 2025-12-26 08:54:15
+Total Questions: 10
+
+PERFORMANCE SUMMARY
+--------------------------------------------------
+RAG Accuracy: 100.00%
+LLM Accuracy: 100.00%
+Accuracy Improvement: +0.00%
+Accuracy Confidence Interval: ±0.00%
+
+SIMILARITY METRICS
+--------------------------------------------------
+Average RAG Overall Similarity: 0.826
+Average RAG Semantic Similarity: 0.937
+Average RAG Jaccard Similarity: 0.466
+
+Average LLM Overall Similarity: 0.765
+Average LLM Semantic Similarity: 0.923
+Average LLM Jaccard Similarity: 0.294
+
+Similarity Threshold Used: 0.35
+
+Correct RAG Answers: 10/10
+Correct LLM Answers: 10/10
+
+RESPONSE TIME STATISTICS
+--------------------------------------------------
+Average Response Time: 2.16s
+Minimum Response Time: 0.35s
+Maximum Response Time: 7.66s

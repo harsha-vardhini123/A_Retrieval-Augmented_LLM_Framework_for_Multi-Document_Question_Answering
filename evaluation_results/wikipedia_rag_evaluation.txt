@@ -1,0 +1,8 @@
+{
+  "rag_accuracy": 0.0,
+  "llm_accuracy": 0.0,
+  "accuracy_improvement": 0.0,
+  "avg_rag_semantic_score": 0.5350904246171315,
+  "avg_llm_semantic_score": 0.5642054458459218,
+  "avg_rag_response_time": 1.852649704615275
+}

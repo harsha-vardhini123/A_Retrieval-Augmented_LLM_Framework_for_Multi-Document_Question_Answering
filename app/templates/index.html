@@ -1,77 +1,227 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Knowledge Management System</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>LBRCE RAG | Intelligence Engine</title>
+    <!-- FontAwesome for standard icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
     <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
 </head>
 <body>
+
+<header>
+    <i class="fa-solid fa-nxl fa-brain" style="color: #a855f7; font-size: 1.8rem;"></i>
+    <div>
+        <h1>LBRCE Knowledge Base</h1>
+        <div class="status">System Online & Ready</div>
+    </div>
+</header>
+
+<div class="main-wrapper">
     <div class="container">
-        <h1>Knowledge Management System</h1>
-        
-        <div class="upload-section">
-            <h2>Upload Documents</h2>
-            <form id="upload-form">
-                <input type="file" id="file-input" multiple>
-                <button type="submit">Upload</button>
+        <!-- Chat History -->
+        <div class="chat-section" id="chat-section">
+            <div id="chat-history" class="chat-history">
+                <!-- Welcome Message -->
+                <div class="message-wrapper bot">
+                    <div class="sender-label">System</div>
+                    <div class="message">Welcome to the LBRCE Intelligence Engine. How can I assist you today? You can upload knowledge documents or ask questions directly below.</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Message Input Area -->
+        <div class="query-section">
+            <form id="chat-form">
+                <!-- Hidden file input -->
+                <input type="file" id="file-input" multiple style="display: none;" />
+
+                <div class="input-wrapper">
+                    <button type="button" id="file-btn" class="action-btn" title="Upload Document">
+                        <i class="fa-solid fa-paperclip"></i>
+                    </button>
+                    <textarea id="question-input" rows="1" placeholder="Query the knowledge base..."></textarea>
+                    
+                    <button type="submit" id="submit-btn" class="action-btn primary" title="Send Query">
+                        <i class="fa-solid fa-paper-plane"></i>
+                    </button>
+                </div>
             </form>
         </div>
-
-        <div class="query-section">
-            <h2>Ask Questions</h2>
-            <textarea id="question-input" placeholder="Enter your question..."></textarea>
-            <button id="submit-question">Ask</button>
-        </div>
-
-        <div class="response-section">
-            <h2>Response</h2>
-            <div id="response-content"></div>
-        </div>
     </div>
+</div>
 
-    <script>
-        document.getElementById('upload-form').addEventListener('submit', async (e) => {
+<div id="loader-overlay">
+    <div class="spinner"></div>
+    <div id="loader-text">Processing documents...</div>
+</div>
+
+<script>
+    const sessionId = localStorage.getItem('session_id') || crypto.randomUUID();
+    localStorage.setItem('session_id', sessionId);
+    
+    const chatSection = document.getElementById('chat-section');
+    const chatBox = document.getElementById('chat-history');
+    const questionInput = document.getElementById('question-input');
+    const form = document.getElementById('chat-form');
+    let isWaitingForResponse = false;
+
+    // Auto-resize textarea
+    questionInput.addEventListener('input', function() {
+        this.style.height = 'auto';
+        this.style.height = (this.scrollHeight) + 'px';
+        if (this.value === '') this.style.height = '48px';
+    });
+
+    // File Upload
+    document.getElementById('file-btn').addEventListener('click', () => {
+        document.getElementById('file-input').click();
+    });
+
+    document.getElementById('file-input').addEventListener('change', async function () {
+        if (!this.files.length) return;
+        
+        const loader = document.getElementById('loader-overlay');
+        const loaderText = document.getElementById('loader-text');
+        
+        loader.classList.add('active');
+        loaderText.innerText = `Encrypting & chunking ${this.files.length} document(s)...`;
+        
+        const formData = new FormData();
+        for (let file of this.files) formData.append('file', file);
+
+        try {
+            const response = await fetch('/upload', { method: 'POST', body: formData });
+            const result = await response.json();
+            
+            if (result.results) {
+                let successCount = result.results.filter(r => r.message).length;
+                let errorCount = result.results.filter(r => r.error).length;
+                
+                if (errorCount === 0) {
+                    appendSystemMessage(`Successfully ingested ${successCount} document(s). Knowledge base updated.`);
+                } else {
+                    appendSystemMessage(`Ingestion complete. Success: ${successCount}, Failed: ${errorCount}. Check console for details.`);
+                    console.log('Upload details:', result.results);
+                }
+            } else {
+                appendSystemMessage(result.message || result.error || 'Documents uploaded.');
+            }
+        } catch (error) {
+            console.error('Error uploading file:', error);
+            appendSystemMessage('Critical error uploading documents.');
+        } finally {
+            loader.classList.remove('active');
+            this.value = ''; // reset
+        }
+    });
+
+    // Enter to submit
+    questionInput.addEventListener('keydown', function (e) {
+        if (e.key === 'Enter' && !e.shiftKey) {
             e.preventDefault();
-            const formData = new FormData();
-            const files = document.getElementById('file-input').files;
-            
-            for (let file of files) {
-                formData.append('file', file);
-            }
+            form.dispatchEvent(new Event('submit'));
+        }
+    });
 
-            try {
-                const response = await fetch('/upload', {
-                    method: 'POST',
-                    body: formData
-                });
-                const result = await response.json();
-                alert(result.message || result.error);
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error uploading files');
-            }
-        });
+    // Form Submit
+    form.addEventListener('submit', async function (e) {
+        e.preventDefault();
+        if (isWaitingForResponse) return;
+        
+        const question = questionInput.value.trim();
+        if (!question) return;
 
-        document.getElementById('submit-question').addEventListener('click', async () => {
-            const question = document.getElementById('question-input').value;
+        appendMessage('user', question, 'You');
+        questionInput.value = '';
+        questionInput.style.height = '48px';
+        
+        // Show typing indicator
+        isWaitingForResponse = true;
+        const msgDiv = document.createElement('div');
+        msgDiv.className = 'message-wrapper bot typing-msg';
+        msgDiv.innerHTML = `
+            <div class="sender-label">LBRCE Engine</div>
+            <div class="message"><div class="typing-indicator"><div class="typing-dot"></div><div class="typing-dot"></div><div class="typing-dot"></div></div></div>
+        `;
+        chatBox.appendChild(msgDiv);
+        scrollToBottom();
+
+        try {
+            const response = await fetch('/query', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ question, session_id: sessionId })
+            });
+            const result = await response.json();
             
-            try {
-                const response = await fetch('/query', {
-                    method: 'POST',
-                    headers: {
-                        'Content-Type': 'application/json',
-                    },
-                    body: JSON.stringify({ question })
+            // Remove typing indicator
+            msgDiv.remove();
+            
+            appendMessage('bot', result.response || result.error || 'Blank response received.', 'LBRCE Engine');
+        } catch (error) {
+            msgDiv.remove();
+            appendMessage('bot', 'Error fetching response from the intelligence engine.', 'System');
+        } finally {
+            isWaitingForResponse = false;
+        }
+    });
+
+    function appendMessage(sender, text, label) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `message-wrapper ${sender}`;
+        msgDiv.innerHTML = `
+            <div class="sender-label">${label}</div>
+            <div class="message">${escapeHTML(text)}</div>
+        `;
+        chatBox.appendChild(msgDiv);
+        scrollToBottom();
+    }
+    
+    function appendSystemMessage(text) {
+        const msgDiv = document.createElement('div');
+        msgDiv.className = `message-wrapper bot`;
+        msgDiv.innerHTML = `
+            <div class="sender-label" style="color:#10b981;">System Update</div>
+            <div class="message" style="border-left: 3px solid #10b981;">${escapeHTML(text)}</div>
+        `;
+        chatBox.appendChild(msgDiv);
+        scrollToBottom();
+    }
+
+    function scrollToBottom() {
+        chatSection.scrollTop = chatSection.scrollHeight;
+    }
+    
+    function escapeHTML(str) {
+        return str.replace(/[&<>'"]/g, 
+            tag => ({
+                '&': '&amp;',
+                '<': '&lt;',
+                '>': '&gt;',
+                "'": '&#39;',
+                '"': '&quot;'
+            }[tag])
+        );
+    }
+
+    // Optional: Fetch previously loaded chat history
+    window.onload = async function() {
+        try {
+            const response = await fetch(`/history/${sessionId}`);
+            const result = await response.json();
+            if (result.history) {
+                result.history.forEach(entry => {
+                    appendMessage('user', entry.question, 'You');
+                    appendMessage('bot', entry.answer, 'LBRCE Engine');
                 });
-                const result = await response.json();
-                document.getElementById('response-content').textContent = 
-                    result.response || result.error;
-            } catch (error) {
-                console.error('Error:', error);
-                alert('Error getting response');
             }
-        });
-    </script>
+        } catch (e) {
+            console.log('No chat history found or endpoint disabled for memory caching.');
+        }
+    };
+</script>
+
 </body>
 </html>

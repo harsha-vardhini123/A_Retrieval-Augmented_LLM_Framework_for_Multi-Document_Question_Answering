@@ -1,0 +1,342 @@
+{
+  "metrics": {
+    "rag_accuracy": 0.0,
+    "llm_accuracy": 0.0,
+    "accuracy_improvement": 0.0,
+    "avg_rag_semantic_score": 0.5350904246171315,
+    "avg_llm_semantic_score": 0.5642054458459218,
+    "avg_rag_response_time": 1.852649704615275
+  },
+  "results": [
+    {
+      "question": "Was Abraham Lincoln the sixteenth President of the United States?",
+      "ground_truth": "yes",
+      "rag_response": "Yes, Abraham Lincoln was the 16th President of the United States. He served from 1861 to 1865, during the Civil War.",
+      "rag_score": {
+        "sequence": 0.05128205128205128,
+        "jaccard": 0.05263157894736842,
+        "semantic": 0.4417995512485504,
+        "length": 0.5263157894736843,
+        "final": 0.25526233062087766
+      },
+      "rag_response_time": 1.9909615516662598,
+      "rag_context_relevance": 0.0,
+      "llm_response": "Yes, Abraham Lincoln was the sixteenth President of the United States. He served from March 1861 until his assassination in April 1865.",
+      "llm_score": {
+        "sequence": 0.043795620437956206,
+        "jaccard": 0.047619047619047616,
+        "semantic": 0.455003559589386,
+        "length": 0.5238095238095238,
+        "final": 0.25704487187190317
+      }
+    },
+    {
+      "question": "Did Lincoln sign the National Banking Act of 1863?",
+      "ground_truth": "yes",
+      "rag_response": "Yes, President Abraham Lincoln signed the National Banking Act in 1863. This act established a national banking system and created a uniform national currency.",
+      "rag_score": {
+        "sequence": 0.037267080745341616,
+        "jaccard": 0.05263157894736842,
+        "semantic": 0.45770031213760376,
+        "length": 0.5263157894736843,
+        "final": 0.2574181438154861
+      },
+      "rag_response_time": 1.865762710571289,
+      "rag_context_relevance": 0.0,
+      "llm_response": "Yes, President Abraham Lincoln signed the National Banking Act into law on February 25, 1863. This act established a system of national banks and a uniform national currency.",
+      "llm_score": {
+        "sequence": 0.03428571428571429,
+        "jaccard": 0.041666666666666664,
+        "semantic": 0.4556416869163513,
+        "length": 0.5208333333333333,
+        "final": 0.25295905571892147
+      }
+    },
+    {
+      "question": "Did his mother die of pneumonia?",
+      "ground_truth": "no",
+      "rag_response": "This question cannot be answered from the given context.",
+      "rag_score": {
+        "sequence": 0.06896551724137931,
+        "jaccard": 0.0,
+        "semantic": 0.5694112181663513,
+        "length": 0.5555555555555556,
+        "final": 0.3040096979945099
+      },
+      "rag_response_time": 2.149301528930664,
+      "rag_context_relevance": 0.0,
+      "llm_response": "I do not have access to personal information, including details about someone's family or cause of death. Therefore, I cannot answer this question.",
+      "llm_score": {
+        "sequence": 0.0273972602739726,
+        "jaccard": 0.0,
+        "semantic": 0.5215197801589966,
+        "length": 0.5227272727272727,
+        "final": 0.2690998174185177
+      }
+    },
+    {
+      "question": "How many long was Lincoln's formal education?",
+      "ground_truth": "18 months",
+      "rag_response": "Lincoln had about 18 months of formal schooling. He was largely self-taught.",
+      "rag_score": {
+        "sequence": 0.21428571428571427,
+        "jaccard": 0.16666666666666666,
+        "semantic": 0.5940775871276855,
+        "length": 0.5833333333333333,
+        "final": 0.3935834158034552
+      },
+      "rag_response_time": 2.0426902770996094,
+      "rag_context_relevance": 0.0,
+      "llm_response": "Abraham Lincoln had very little formal education. It is estimated that he had about one year of formal schooling.",
+      "llm_score": {
+        "sequence": 0.09836065573770492,
+        "jaccard": 0.0,
+        "semantic": 0.48629605770111084,
+        "length": 0.5588235294117647,
+        "final": 0.2799089727429323
+      }
+    },
+    {
+      "question": "When did Lincoln begin his political career?",
+      "ground_truth": "1832",
+      "rag_response": "I am sorry, but the context does not contain the answer to this question.",
+      "rag_score": {
+        "sequence": 0.0,
+        "jaccard": 0.0,
+        "semantic": 0.38520365953445435,
+        "length": 0.5384615384615384,
+        "final": 0.2079276176599356
+      },
+      "rag_response_time": 1.8940138816833496,
+      "rag_context_relevance": 0.0,
+      "llm_response": "Abraham Lincoln began his political career in 1832 when he ran for the Illinois General Assembly. Although he lost that first election, he was elected to the Assembly two years later in 1834.",
+      "llm_score": {
+        "sequence": 0.041237113402061855,
+        "jaccard": 0.034482758620689655,
+        "semantic": 0.564581573009491,
+        "length": 0.5172413793103448,
+        "final": 0.29682445287958736
+      }
+    },
+    {
+      "question": "What did The Legal Tender Act of 1862 establish?",
+      "ground_truth": "the United States Note, the first paper currency in United States history",
+      "rag_response": "The Legal Tender Act of 1862 authorized the creation of United States Notes. These notes were a form of paper currency declared as legal tender.",
+      "rag_score": {
+        "sequence": 0.49074074074074076,
+        "jaccard": 0.2,
+        "semantic": 0.8100199699401855,
+        "length": 0.7142857142857143,
+        "final": 0.5826587816268679
+      },
+      "rag_response_time": 1.910370111465454,
+      "rag_context_relevance": 0.0,
+      "llm_response": "The Legal Tender Act of 1862 authorized the creation of paper money, called \"United States Notes,\" and declared them legal tender, meaning they could be used to pay debts. This act helped finance the Union war effort during the Civil War.",
+      "llm_score": {
+        "sequence": 0.22950819672131148,
+        "jaccard": 0.10256410256410256,
+        "semantic": 0.7688767910003662,
+        "length": 0.6323529411764706,
+        "final": 0.46015129004700756
+      }
+    },
+    {
+      "question": "Who suggested Lincoln grow a beard?",
+      "ground_truth": "11-year-old Grace Bedell",
+      "rag_response": "The context does not contain the answer.",
+      "rag_score": {
+        "sequence": 0.16129032258064516,
+        "jaccard": 0.0,
+        "semantic": 0.3445044755935669,
+        "length": 1.0,
+        "final": 0.28618888701162026
+      },
+      "rag_response_time": 1.2458627223968506,
+      "rag_context_relevance": 0.0,
+      "llm_response": "Grace Bedell, an 11-year-old girl, wrote a letter to Abraham Lincoln during his 1860 presidential campaign suggesting he grow a beard to improve his appearance. He later grew a beard, partially in response to her suggestion.",
+      "llm_score": {
+        "sequence": 0.0995850622406639,
+        "jaccard": 0.10344827586206896,
+        "semantic": 0.6742507219314575,
+        "length": 0.5517241379310345,
+        "final": 0.3754378764102994
+      }
+    },
+    {
+      "question": "When did the Gettysburg address argue that America was born?",
+      "ground_truth": "1776",
+      "rag_response": "The Gettysburg Address argues that America was born in 1776. Abraham Lincoln stated that the nation was \"conceived in liberty, and dedicated to the proposition that all men are created equal\" at its conception.",
+      "rag_score": {
+        "sequence": 0.037914691943127965,
+        "jaccard": 0.0,
+        "semantic": 0.6247060894966125,
+        "length": 0.5178571428571428,
+        "final": 0.31304255766729766
+      },
+      "rag_response_time": 2.0964293479919434,
+      "rag_context_relevance": 0.0,
+      "llm_response": "The Gettysburg Address states that America was born on July 4, 1776, with the Declaration of Independence. Lincoln references the nation's founding fathers bringing forth a new nation \"conceived in liberty, and dedicated to the proposition that all men are created equal.\"",
+      "llm_score": {
+        "sequence": 0.02962962962962963,
+        "jaccard": 0.02631578947368421,
+        "semantic": 0.6034444570541382,
+        "length": 0.513157894736842,
+        "final": 0.30684561907896524
+      }
+    },
+    {
+      "question": "Did Lincoln beat John C. Breckinridge in the 1860 election?",
+      "ground_truth": "yes",
+      "rag_response": "Yes, Abraham Lincoln defeated John C. Breckinridge in the 1860 presidential election.",
+      "rag_score": {
+        "sequence": 0.06896551724137931,
+        "jaccard": 0.08333333333333333,
+        "semantic": 0.49341878294944763,
+        "length": 0.5416666666666667,
+        "final": 0.2888905016855262
+      },
+      "rag_response_time": 1.6588683128356934,
+      "rag_context_relevance": 0.0,
+      "llm_response": "Yes, Abraham Lincoln defeated John C. Breckinridge in the 1860 presidential election. Lincoln won the election with a plurality of the popular vote and a majority of the electoral vote.",
+      "llm_score": {
+        "sequence": 0.03208556149732621,
+        "jaccard": 0.041666666666666664,
+        "semantic": 0.46541017293930054,
+        "length": 0.5208333333333333,
+        "final": 0.25620640429158476
+      }
+    },
+    {
+      "question": "Was Abraham Lincoln the first President of the United States?",
+      "ground_truth": "No",
+      "rag_response": "No, Abraham Lincoln was not the first President of the United States. George Washington was the first U.S.",
+      "rag_score": {
+        "sequence": 0.037383177570093455,
+        "jaccard": 0.07142857142857142,
+        "semantic": 0.46617189049720764,
+        "length": 0.5357142857142857,
+        "final": 0.26554085232705393
+      },
+      "rag_response_time": 2.1919524669647217,
+      "rag_context_relevance": 0.0,
+      "llm_response": "No, Abraham Lincoln was not the first President of the United States. George Washington was the first President, serving from 1789 to 1797.",
+      "llm_score": {
+        "sequence": 0.02877697841726619,
+        "jaccard": 0.05555555555555555,
+        "semantic": 0.4273741841316223,
+        "length": 0.5277777777777778,
+        "final": 0.24347165606671767
+      }
+    },
+    {
+      "question": "Did Lincoln start his political career in 1832?",
+      "ground_truth": "Yes",
+      "rag_response": "Yes, Lincoln began his political career in 1832. He ran for the Illinois General Assembly that year.",
+      "rag_score": {
+        "sequence": 0.058823529411764705,
+        "jaccard": 0.058823529411764705,
+        "semantic": 0.46658116579055786,
+        "length": 0.5294117647058824,
+        "final": 0.26898540749269373
+      },
+      "rag_response_time": 1.9958012104034424,
+      "rag_context_relevance": 0.0,
+      "llm_response": "Yes, Abraham Lincoln began his political career in 1832 when he ran for the Illinois General Assembly. Although he lost that election, he was elected two years later in 1834.",
+      "llm_score": {
+        "sequence": 0.03428571428571429,
+        "jaccard": 0.037037037037037035,
+        "semantic": 0.45532655715942383,
+        "length": 0.5185185185185186,
+        "final": 0.2516755964087431
+      }
+    },
+    {
+      "question": "Did Lincoln ever represent Alton & Sangamon Railroad?",
+      "ground_truth": "Yes",
+      "rag_response": "I am sorry, but this context does not contain the answer to your question.",
+      "rag_score": {
+        "sequence": 0.07894736842105263,
+        "jaccard": 0.0,
+        "semantic": 0.5352193117141724,
+        "length": 0.5357142857142857,
+        "final": 0.2913433637834133
+      },
+      "rag_response_time": 1.6044588088989258,
+      "rag_context_relevance": 0.0,
+      "llm_response": "Yes, Abraham Lincoln represented the Alton & Sangamon Railroad in a legal case against a Morgan County farmer in 1841. The case involved a dispute over a payment for land.",
+      "llm_score": {
+        "sequence": 0.03488372093023256,
+        "jaccard": 0.043478260869565216,
+        "semantic": 0.4659658968448639,
+        "length": 0.5217391304347826,
+        "final": 0.2577210402344067
+      }
+    },
+    {
+      "question": "Which county was Lincoln born in?",
+      "ground_truth": "Hardin County",
+      "rag_response": "Lincoln was born in LaRue County, Kentucky. At the time of his birth, it was called Hardin County.",
+      "rag_score": {
+        "sequence": 0.23853211009174313,
+        "jaccard": 0.11764705882352941,
+        "semantic": 0.6464608907699585,
+        "length": 0.5588235294117647,
+        "final": 0.4095557540413888
+      },
+      "rag_response_time": 1.770678997039795,
+      "rag_context_relevance": 0.0,
+      "llm_response": "Abraham Lincoln was born in Hardin County, Kentucky. This county is now LaRue County, Kentucky, due to a later boundary change.",
+      "llm_score": {
+        "sequence": 0.1897810218978102,
+        "jaccard": 0.10526315789473684,
+        "semantic": 0.681746244430542,
+        "length": 0.5526315789473684,
+        "final": 0.4059485938152441
+      }
+    },
+    {
+      "question": "When did Lincoln first serve as President?",
+      "ground_truth": "March 4, 1861",
+      "rag_response": "I am sorry, but this question cannot be answered from the context provided.",
+      "rag_score": {
+        "sequence": 0.046511627906976744,
+        "jaccard": 0.0,
+        "semantic": 0.40789395570755005,
+        "length": 0.6153846153846154,
+        "final": 0.2386495321935746
+      },
+      "rag_response_time": 1.5789544582366943,
+      "rag_context_relevance": 0.0,
+      "llm_response": "Abraham Lincoln first served as President of the United States from March 4, 1861, until his assassination on April 15, 1865. He was elected as the 16th President in the 1860 election.",
+      "llm_score": {
+        "sequence": 0.12435233160621761,
+        "jaccard": 0.10714285714285714,
+        "semantic": 0.6662960052490234,
+        "length": 0.5535714285714286,
+        "final": 0.38060981586718895
+      }
+    },
+    {
+      "question": "Who assassinated Lincoln?",
+      "ground_truth": "John Wilkes Booth",
+      "rag_response": "John Wilkes Booth assassinated Abraham Lincoln. Booth was a famous actor and a Confederate sympathizer.",
+      "rag_score": {
+        "sequence": 0.2833333333333333,
+        "jaccard": 0.23076923076923078,
+        "semantic": 0.7831875085830688,
+        "length": 0.6153846153846154,
+        "final": 0.5059673111255352
+      },
+      "rag_response_time": 1.7936391830444336,
+      "rag_context_relevance": 0.0,
+      "llm_response": "John Wilkes Booth, a famous actor and Confederate sympathizer, assassinated President Abraham Lincoln. He shot Lincoln at Ford's Theatre in Washington, D.C., on April 14, 1865.",
+      "llm_score": {
+        "sequence": 0.18181818181818182,
+        "jaccard": 0.11538461538461539,
+        "semantic": 0.7713479995727539,
+        "length": 0.5576923076923077,
+        "final": 0.44193080822071007
+      }
+    }
+  ]
+}

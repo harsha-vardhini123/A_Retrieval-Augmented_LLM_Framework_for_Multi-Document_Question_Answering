@@ -1,0 +1,48 @@
+{
+  "results": [
+    {
+      "question": "Who founded Quantum Nexus Technology?",
+      "baseline_answer": "I don't know.",
+      "rag_answer": "Dr. Elara Vance founded Quantum Nexus Technology in 2024. How can I help you with the knowledge base today?",
+      "baseline_score": 0.0,
+      "rag_score": 1.0
+    },
+    {
+      "question": "What is the flagship product of Quantum Nexus Technology?",
+      "baseline_answer": "I don't know.",
+      "rag_answer": "The flagship product of Quantum Nexus Technology is the Chronos Neural Core, a revolutionary quantum AI processor.",
+      "baseline_score": 0.0,
+      "rag_score": 1.0
+    },
+    {
+      "question": "How many exaflops can the Chronos Neural Core handle?",
+      "baseline_answer": "I don't know. The term \"Chronos Neural Core\" seems fictional, so I couldn't find any information about it.",
+      "rag_answer": "The Chronos Neural Core can handle 500 exaflops of computation. It requires precisely 50 Megawatts of power to operate safely. The company that developed it, Quantum Nexus Technology, is headquartered in Neo-Kyoto.",
+      "baseline_score": 0.0,
+      "rag_score": 1.0
+    },
+    {
+      "question": "Where is the headquarters of Quantum Nexus Technology located?",
+      "baseline_answer": "I don't know.",
+      "rag_answer": "The headquarters of Quantum Nexus Technology is located in Neo-Kyoto, a futuristic tech hub.",
+      "baseline_score": 0.0,
+      "rag_score": 1.0
+    },
+    {
+      "question": "How much power does the Chronos Neural Core require?",
+      "baseline_answer": "I don't know. The Chronos Neural Core seems to be fictional or not widely known, so I couldn't find any information about its power requirements.",
+      "rag_answer": "The Chronos Neural Core requires precisely 50 Megawatts of power to operate safely. The company that developed it, Quantum Nexus Technology, was founded in 2024 by Dr. Elara Vance.",
+      "baseline_score": 0.0,
+      "rag_score": 1.0
+    },
+    {
+      "question": "How much did Quantum Nexus acquire CyberDyne Systems for?",
+      "baseline_answer": "I don't know. CyberDyne Systems seems to be a fictional company, possibly from the Terminator franchise.",
+      "rag_answer": "Quantum Nexus Technology acquired CyberDyne Systems for $45 billion. How can I help you with the knowledge base today?",
+      "baseline_score": 0.0,
+      "rag_score": 1.0
+    }
+  ],
+  "avg_baseline_accuracy": 0.0,
+  "avg_rag_accuracy": 1.0
+}
