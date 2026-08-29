@@ -1,6 +1,6 @@
 # RAG-Based-Knowledge-Management-System
 
-# Retrieval-Augmented LLM for Multi-Document Q&A
+# A Retrieval-Augmented LLM Frame work for Multi-Document Q&A
 
 A **Retrieval-Augmented Generation (RAG)** based Knowledge Management System that enables users to upload documents and ask natural-language questions. The system retrieves relevant document content and uses an LLM to generate contextual and evidence-based answers.
 
