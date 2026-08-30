@@ -19,7 +19,7 @@ A **Retrieval-Augmented Generation (RAG)** based Knowledge Management System tha
 * **LangChain**
 * **Google Gemini 2.0 Flash**
 * **Hugging Face all-MiniLM-L6-v2**
-* **ChromaDB**
+* **VectorDB - ChromaDB**
 * **Amazon S3 / boto3**
 * **ConversationBufferMemory**
 
