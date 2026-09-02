@@ -8,7 +8,7 @@ PERFORMANCE SUMMARY
 RAG Accuracy: 100.00%
 LLM Accuracy: 100.00%
 Accuracy Improvement: +0.00%
-Accuracy Confidence Interval: ±0.00%
+Accuracy Confidence Interval: Â±0.00%
 
 SIMILARITY METRICS
 --------------------------------------------------
